@@ -3,9 +3,33 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.438
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01 入门", "01 入门", "{3CE7EBB4-1F73-48F3-B171-C88E268D0862}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01_HelloWindow", "01_HelloWindow\01_HelloWindow.csproj", "{23344984-A1F7-4534-8890-DD9722D2E6C1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02_HelloTriangle", "02_HelloTriangle\02_HelloTriangle.csproj", "{01088DAA-2034-4E6C-85D8-FC4808AAC44F}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{23344984-A1F7-4534-8890-DD9722D2E6C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23344984-A1F7-4534-8890-DD9722D2E6C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23344984-A1F7-4534-8890-DD9722D2E6C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23344984-A1F7-4534-8890-DD9722D2E6C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01088DAA-2034-4E6C-85D8-FC4808AAC44F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01088DAA-2034-4E6C-85D8-FC4808AAC44F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01088DAA-2034-4E6C-85D8-FC4808AAC44F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01088DAA-2034-4E6C-85D8-FC4808AAC44F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{23344984-A1F7-4534-8890-DD9722D2E6C1} = {3CE7EBB4-1F73-48F3-B171-C88E268D0862}
+		{01088DAA-2034-4E6C-85D8-FC4808AAC44F} = {3CE7EBB4-1F73-48F3-B171-C88E268D0862}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B445A98B-37A1-4943-8004-75320227325F}
