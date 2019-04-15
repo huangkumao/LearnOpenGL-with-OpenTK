@@ -22,7 +22,7 @@ namespace Common
             GL.AttachShader(PID, _VID);
             Console.WriteLine(GL.GetShaderInfoLog(_VID));
 
-            int _FID = GL.CreateShader(ShaderType.VertexShader);
+            int _FID = GL.CreateShader(ShaderType.FragmentShader);
             GL.ShaderSource(_FID, _F);
             GL.CompileShader(_FID);
             GL.AttachShader(PID, _FID);
