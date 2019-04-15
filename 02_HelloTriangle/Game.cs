@@ -33,8 +33,10 @@ namespace HelloTriangle
 
         private int _VAO; //顶点数组对象：Vertex Array Object，VAO
         private int _VBO; //顶点缓冲对象：Vertex Buffer Object，VBO
+        private int _EBO; //索引缓冲对象：Element Buffer Object，EBO或Index Buffer Object，IBO
 
         private Vector3[] _VertData; //顶点数据
+        private int[] _IndiceData; //索引数据
 
         public Game() : base(600, 600, GraphicsMode.Default, "", GameWindowFlags.Default, DisplayDevice.Default, 4, 0,
             GraphicsContextFlags.ForwardCompatible)
@@ -68,14 +70,22 @@ namespace HelloTriangle
             //传递给Shader的顶点数据
             _VertData = new[]
             {
-                new Vector3(-0.8f, -0.8f, 0f),
-                new Vector3(0.8f, -0.8f, 0f),
-                new Vector3(0f, 0.8f, 0f)
+                new Vector3(0.5f, 0.5f, 0f),
+                new Vector3(0.5f, -0.5f, 0f),
+                new Vector3(-0.5f, -0.5f, 0f),
+                new Vector3(-0.5f, 0.5f, 0f)
+            };
+
+            _IndiceData = new[]
+            {
+                0, 1, 3, // 第一个三角形
+                1, 2, 3  // 第二个三角形
             };
 
             //创建VAO
             _VAO = GL.GenVertexArray();
             GL.BindVertexArray(_VAO); //绑定VAO - 表示下面的操作(VBO)都和此VAO相关 直到解绑
+            
             //创建VBO
             _VBO = GL.GenBuffer();
             //绑定 表示当前对类型(BufferTarget.ArrayBuffer)的操作 都是针对此VBO的
@@ -85,6 +95,12 @@ namespace HelloTriangle
                 BufferUsageHint.StaticDraw);
             //告知GL如何解析数据. 第一个参数0 对应的VS中的 (location = 0)
             GL.VertexAttribPointer(0, 3, VertexAttribPointerType.Float, false, 0, 0);
+
+            //创建EBO
+            _EBO = GL.GenBuffer();
+            GL.BindBuffer(BufferTarget.ElementArrayBuffer, _EBO);
+            GL.BufferData<int>(BufferTarget.ElementArrayBuffer, sizeof(int) * _IndiceData.Length, _IndiceData, BufferUsageHint.StaticDraw);
+
             //启用定点属性
             GL.EnableVertexAttribArray(0);
 
@@ -95,7 +111,9 @@ namespace HelloTriangle
             GL.BindVertexArray(0);
 
             GL.ClearColor(Color.CornflowerBlue);
-            //GL.PointSize(5f);
+
+            //线框模式
+            //GL.PolygonMode(MaterialFace.FrontAndBack, PolygonMode.Line);
         }
 
         protected override void OnRenderFrame(FrameEventArgs e)
@@ -106,11 +124,12 @@ namespace HelloTriangle
             GL.Enable(EnableCap.DepthTest);
 
             //指定VAO
-            GL.BindVertexArray(_VAO); 
+            GL.BindVertexArray(_VAO);
             //指定Shader程序
             GL.UseProgram(_PId);
             //绘制图像
-            GL.DrawArrays(PrimitiveType.Triangles, 0, 3); 
+            //GL.DrawArrays(PrimitiveType.Triangles, 0, 3); 
+            GL.DrawElements(BeginMode.Triangles, 6, DrawElementsType.UnsignedInt, 0);
 
             GL.Flush();
             SwapBuffers();
