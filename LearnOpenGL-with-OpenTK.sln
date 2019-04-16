@@ -15,6 +15,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{7C8D0C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{32896FC6-47F4-4361-87B1-AB6DA8DEB27A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04_Textures", "04_Textures\04_Textures.csproj", "{A88346B8-F8A7-484A-8973-4A0C9151FB4D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,10 @@ Global
 		{32896FC6-47F4-4361-87B1-AB6DA8DEB27A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{32896FC6-47F4-4361-87B1-AB6DA8DEB27A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{32896FC6-47F4-4361-87B1-AB6DA8DEB27A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A88346B8-F8A7-484A-8973-4A0C9151FB4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A88346B8-F8A7-484A-8973-4A0C9151FB4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A88346B8-F8A7-484A-8973-4A0C9151FB4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A88346B8-F8A7-484A-8973-4A0C9151FB4D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -46,6 +52,7 @@ Global
 		{01088DAA-2034-4E6C-85D8-FC4808AAC44F} = {3CE7EBB4-1F73-48F3-B171-C88E268D0862}
 		{45F29F38-FF61-441D-8807-600E8EC6CAB8} = {3CE7EBB4-1F73-48F3-B171-C88E268D0862}
 		{32896FC6-47F4-4361-87B1-AB6DA8DEB27A} = {7C8D0CE2-4021-4028-A2BF-F3083FB2C2E9}
+		{A88346B8-F8A7-484A-8973-4A0C9151FB4D} = {3CE7EBB4-1F73-48F3-B171-C88E268D0862}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B445A98B-37A1-4943-8004-75320227325F}

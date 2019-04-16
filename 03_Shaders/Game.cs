@@ -14,10 +14,8 @@ namespace _03_Shaders
 
         private int _VAO; //顶点数组对象：Vertex Array Object，VAO
         private int _VBO; //顶点缓冲对象：Vertex Buffer Object，VBO
-        private int _EBO; //索引缓冲对象：Element Buffer Object，EBO或Index Buffer Object，IBO
 
         private Vector3[] _VertData; //顶点数据
-        private int[] _IndiceData; //索引数据
 
         public Game() : base(600, 600, GraphicsMode.Default, "", GameWindowFlags.Default, DisplayDevice.Default, 4, 0,
             GraphicsContextFlags.ForwardCompatible)
@@ -27,7 +25,7 @@ namespace _03_Shaders
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
-            Title = "Hello Triangle";
+            Title = "Shader";
 
             _Shader = new Shader(@"../../Shader/vertex.glsl", @"../../Shader/fragment.glsl");
 
