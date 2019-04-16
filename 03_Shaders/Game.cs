@@ -34,17 +34,30 @@ namespace _03_Shaders
             //传递给Shader的顶点数据
             _VertData = new[]
             {
-                new Vector3(0.5f, 0.5f, 0f),
-                new Vector3(0.5f, -0.5f, 0f),
-                new Vector3(-0.5f, -0.5f, 0f),
-                new Vector3(-0.5f, 0.5f, 0f)
+                //颜色
+                new Vector3(0.5f, -0.5f, 0.0f),
+                new Vector3(0.0f,  0.5f, 0.0f),
+                new Vector3(-0.5f, -0.5f, 0.0f),
+                //位置
+                new Vector3(1.0f, 0.0f, 0.0f),
+                new Vector3(0.0f, 1.0f, 0.0f),
+                new Vector3(0.0f, 0.0f, 1.0f) 
             };
 
-            _IndiceData = new[]
+            /* 两种方式都可以 方便理解 VertexAttribPointer 参数的含义
+            _VertData = new[]
             {
-                0, 1, 3, // 第一个三角形
-                1, 2, 3  // 第二个三角形
+                //颜色 & 位置 混合
+                new Vector3(0.5f, -0.5f, 0.0f),
+                new Vector3(1.0f, 0.0f, 0.0f),
+
+                new Vector3(0.0f,  0.5f, 0.0f),
+                new Vector3(0.0f, 1.0f, 0.0f),
+
+                new Vector3(-0.5f, -0.5f, 0.0f),
+                new Vector3(0.0f, 0.0f, 1.0f)
             };
+            */
 
             //创建VAO
             _VAO = GL.GenVertexArray();
@@ -58,15 +71,16 @@ namespace _03_Shaders
             GL.BufferData(BufferTarget.ArrayBuffer, (IntPtr)(_VertData.Length * Vector3.SizeInBytes), _VertData,
                 BufferUsageHint.StaticDraw);
             //告知GL如何解析数据. 第一个参数0 对应的VS中的 (location = 0)
-            GL.VertexAttribPointer(0, 3, VertexAttribPointerType.Float, false, 0, 0);
+            GL.VertexAttribPointer(0, 3, VertexAttribPointerType.Float, false, 3 * sizeof(float), 0);
+            GL.VertexAttribPointer(1, 3, VertexAttribPointerType.Float, false, 3 * sizeof(float), 9 * sizeof(float));
 
-            //创建EBO
-            _EBO = GL.GenBuffer();
-            GL.BindBuffer(BufferTarget.ElementArrayBuffer, _EBO);
-            GL.BufferData<int>(BufferTarget.ElementArrayBuffer, sizeof(int) * _IndiceData.Length, _IndiceData, BufferUsageHint.StaticDraw);
+            //使用第二种_VertData数据定义方式
+            //GL.VertexAttribPointer(0, 3, VertexAttribPointerType.Float, false, 6 * sizeof(float), 0);
+            //GL.VertexAttribPointer(1, 3, VertexAttribPointerType.Float, false, 6 * sizeof(float), 3 * sizeof(float));
 
             //启用定点属性
             GL.EnableVertexAttribArray(0);
+            GL.EnableVertexAttribArray(1);
 
             //解绑VBO
             GL.BindBuffer(BufferTarget.ArrayBuffer, 0);
@@ -91,9 +105,9 @@ namespace _03_Shaders
             GL.BindVertexArray(_VAO);
             //指定Shader程序
             _Shader.Use();
+
             //绘制图像
-            //GL.DrawArrays(PrimitiveType.Triangles, 0, 3); 
-            GL.DrawElements(BeginMode.Triangles, 6, DrawElementsType.UnsignedInt, 0);
+            GL.DrawArrays(PrimitiveType.Triangles, 0, 3); 
 
             GL.Flush();
             SwapBuffers();

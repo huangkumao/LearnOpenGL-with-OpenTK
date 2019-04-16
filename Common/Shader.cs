@@ -56,5 +56,10 @@ namespace Common
         {
             GL.Uniform1(GL.GetUniformLocation(PID, name), value);
         }
+
+        public void Set4f(string name, float value1, float value2, float value3, float value4)
+        {
+            GL.Uniform4(GL.GetUniformLocation(PID, name), value1, value2, value3, value4);
+        }
     }
 }
