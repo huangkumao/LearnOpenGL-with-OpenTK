@@ -27,7 +27,7 @@ namespace _03_Shaders
             base.OnLoad(e);
             Title = "Shader";
 
-            _Shader = new Shader(@"../../Shader/vertex.glsl", @"../../Shader/fragment.glsl");
+            _Shader = new Shader(@"../../../../Shaders/03/vertex.glsl", @"../../../../Shaders/03/fragment.glsl");
 
             //传递给Shader的顶点数据
             _VertData = new[]

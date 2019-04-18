@@ -31,7 +31,7 @@ namespace _04_Textures
             base.OnLoad(e);
             Title = "Shader";
 
-            _Shader = new Shader(@"../../Shader/vertex.glsl", @"../../Shader/fragment.glsl");
+            _Shader = new Shader(@"../../../../Shaders/04/vertex.glsl", @"../../../../Shaders/04/fragment.glsl");
 
             //传递给Shader的顶点数据
             _VertData = new[]
@@ -86,7 +86,7 @@ namespace _04_Textures
             GL.TextureParameter(_TexID, TextureParameterName.TextureMinFilter, (int)TextureMinFilter.Linear);
             GL.TextureParameter(_TexID, TextureParameterName.TextureMagFilter, (int)TextureMagFilter.Linear);
 
-            var image = new Bitmap("../../Texture/tex.jpg");
+            var image = new Bitmap("../../../../Resources/04/tex.jpg");
             BitmapData data = image.LockBits(new Rectangle(0, 0, image.Width, image.Height),
                 ImageLockMode.ReadOnly, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
 
@@ -105,7 +105,7 @@ namespace _04_Textures
             GL.TextureParameter(_TexID2, TextureParameterName.TextureMinFilter, (int)TextureMinFilter.Linear);
             GL.TextureParameter(_TexID2, TextureParameterName.TextureMagFilter, (int)TextureMagFilter.Linear);
 
-            image = new Bitmap("../../Texture/tex2.png");
+            image = new Bitmap("../../../../Resources/04/tex2.png");
             //这是因为OpenGL要求y轴0.0坐标是在图片的底部的，但是图片的y轴0.0坐标通常在顶部。
             image.RotateFlip(RotateFlipType.Rotate180FlipX); //垂直翻转图片
             data = image.LockBits(new Rectangle(0, 0, image.Width, image.Height),

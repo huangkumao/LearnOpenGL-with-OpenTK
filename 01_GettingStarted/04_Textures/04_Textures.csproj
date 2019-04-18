@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{45F29F38-FF61-441D-8807-600E8EC6CAB8}</ProjectGuid>
+    <ProjectGuid>{A88346B8-F8A7-484A-8973-4A0C9151FB4D}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>_03_Shaders</RootNamespace>
-    <AssemblyName>03_Shaders</AssemblyName>
+    <RootNamespace>_04_Textures</RootNamespace>
+    <AssemblyName>04_Textures</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -55,14 +55,13 @@
     <None Include="App.config" />
     <None Include="OpenTK.dll.config" />
     <None Include="packages.config" />
-    <None Include="Shader\fragment.glsl" />
-    <None Include="Shader\vertex.glsl" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Common\Common.csproj">
+    <ProjectReference Include="..\..\Common\Common.csproj">
       <Project>{32896fc6-47f4-4361-87b1-ab6da8deb27a}</Project>
       <Name>Common</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
