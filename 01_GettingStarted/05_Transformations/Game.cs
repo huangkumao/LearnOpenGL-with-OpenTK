@@ -161,7 +161,7 @@ namespace _05_Transformations
 
             mat4 transform = mat4.identity();
             transform = glm.translate(transform, new vec3(0.5f, -0.5f, 0f));
-            transform = glm.rotate(transform, (float)Environment.TickCount ,new vec3(0f, 0f, 1f));
+            transform = glm.rotate(transform, (float)Environment.TickCount / 1000,new vec3(0f, 0f, 1f));
             transform = glm.scale(transform, new vec3(0.5f, 0.5f, 0.5f));
 
             //指定Shader程序
