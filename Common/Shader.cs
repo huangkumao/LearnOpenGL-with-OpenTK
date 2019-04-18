@@ -61,5 +61,10 @@ namespace Common
         {
             GL.Uniform4(GL.GetUniformLocation(PID, name), value1, value2, value3, value4);
         }
+
+        public void SetMat4(string name, float[] mat4f)
+        {
+            GL.UniformMatrix4(GL.GetUniformLocation(PID, name), 1, false, mat4f);
+        }
     }
 }
