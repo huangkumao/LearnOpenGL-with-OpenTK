@@ -6,7 +6,7 @@ namespace Common
 {
     public class Shader
     {
-        private int PID; //着色器程序id
+        public int PID; //着色器程序id
 
         //构造器读取并构建着色器
         public Shader(string pVertexPath, string pFragmentPath)
@@ -65,6 +65,11 @@ namespace Common
         public void SetMat4(string name, float[] mat4f)
         {
             GL.UniformMatrix4(GL.GetUniformLocation(PID, name), 1, false, mat4f);
+        }
+
+        public void SetMat4(string name, ref OpenTK.Matrix4 transform)
+        {
+            GL.UniformMatrix4(GL.GetUniformLocation(PID, name), false, ref transform);
         }
     }
 }

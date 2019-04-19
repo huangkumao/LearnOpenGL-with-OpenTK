@@ -159,14 +159,24 @@ namespace _05_Transformations
             GL.ActiveTexture(TextureUnit.Texture1);
             GL.BindTexture(TextureTarget.Texture2D, _TexID2);
 
+            //指定Shader程序
+            _Shader.Use();
+
+            //本节核心代码 两种方法结果相同 使用OpenTK提供的方法比较简单
+
+            //1 使用GLM提供的矩阵操作方法
             mat4 transform = mat4.identity();
             transform = glm.translate(transform, new vec3(0.5f, -0.5f, 0f));
             transform = glm.rotate(transform, (float)Environment.TickCount / 1000,new vec3(0f, 0f, 1f));
             transform = glm.scale(transform, new vec3(0.5f, 0.5f, 0.5f));
-
-            //指定Shader程序
-            _Shader.Use();
             _Shader.SetMat4("transform", transform.to_array());
+
+            //2 使用OpenTK自带的矩阵操作方法
+//            Matrix4 transform = Matrix4.CreateScale(0.5f, 0.5f, 0.5f) * 
+//                                Matrix4.CreateRotationZ((float)Environment.TickCount / 1000) *
+//                                Matrix4.CreateTranslation(0.5f, -0.5f, 0f);
+//            _Shader.SetMat4("transform", ref transform);
+
             //指定VAO
             GL.BindVertexArray(_VAO);
 
