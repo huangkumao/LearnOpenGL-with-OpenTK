@@ -61,6 +61,7 @@ namespace HelloWindow
             base.OnResize(e);
         }
 
+        //这个函数相当于Unity里面的Update, 用来处理准备需要渲染的内容
         protected override void OnUpdateFrame(FrameEventArgs e)
         {
             base.OnUpdateFrame(e);
