@@ -142,7 +142,39 @@ namespace _05_Transformations
             mat4 trans = mat4.identity();
             trans = glm.translate(trans, new vec3(1f, 1f, 0f));
             v4 = trans * v4;
-            Console.WriteLine($"移动前: X={v4.x},Y={v4.y},Z={v4.z},W={v4.w}");
+            Console.WriteLine($"移动后: X={v4.x},Y={v4.y},Z={v4.z},W={v4.w}");
+
+            //使用OpenTK自带的方法 测试移动向量
+            /*
+             *
+             *
+             * 特别注意! OpenTK的矩阵乘法是从左向右的! 和数学上相反! 和教程里GLM的也是相反的!
+             *
+             *
+             */
+            Matrix4 matrix4 = Matrix4.CreateTranslation(1f,1f,0f);
+            Vector4 vector4 = new Vector4(1f, 0f, 0f, 1f);
+            var a = vector4 * matrix4;
+            Console.WriteLine($"移动后: X={a.X},Y={a.Y},Z={a.Z},W={a.W}");
+
+
+            //测试 注意操作顺序
+            {
+                //1 使用GLM.Net提供的矩阵操作
+                mat4 transform = mat4.identity();
+                transform = glm.translate(transform, new vec3(0.5f, -0.5f, 0f));    //变换
+                transform = glm.rotate(transform, 3.14f, new vec3(0f, 0f, 1f));     //旋转
+                transform = glm.scale(transform, new vec3(0.5f, 0.5f, 0.5f));       //缩放
+                transform.Dump();
+            }
+
+            {
+                //2 使用OpenTK自带的矩阵操作方法
+                Matrix4 transform = Matrix4.CreateScale(0.5f, 0.5f, 0.5f) *         //缩放
+                                    Matrix4.CreateRotationZ(3.14f) *                //旋转
+                                    Matrix4.CreateTranslation(0.5f, -0.5f, 0f);     //变换
+                transform.Dump();
+            }
         }
 
         protected override void OnRenderFrame(FrameEventArgs e)
