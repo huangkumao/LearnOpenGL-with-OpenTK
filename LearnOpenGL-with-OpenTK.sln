@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05_Transformations", "01_Ge
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "06_CoordinateSystems", "01_GettingStarted\06_CoordinateSystems\06_CoordinateSystems.csproj", "{39FCBEA9-6A57-4348-866B-61FB5266D6A7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "07_Camera", "01_GettingStarted\07_Camera\07_Camera.csproj", "{B30B313A-1AB0-4E74-9871-5962960432B7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +57,10 @@ Global
 		{39FCBEA9-6A57-4348-866B-61FB5266D6A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{39FCBEA9-6A57-4348-866B-61FB5266D6A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{39FCBEA9-6A57-4348-866B-61FB5266D6A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B30B313A-1AB0-4E74-9871-5962960432B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B30B313A-1AB0-4E74-9871-5962960432B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B30B313A-1AB0-4E74-9871-5962960432B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B30B313A-1AB0-4E74-9871-5962960432B7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -67,6 +73,7 @@ Global
 		{A88346B8-F8A7-484A-8973-4A0C9151FB4D} = {3CE7EBB4-1F73-48F3-B171-C88E268D0862}
 		{1B47E5D3-791B-4E24-AB37-25BD655DD89C} = {3CE7EBB4-1F73-48F3-B171-C88E268D0862}
 		{39FCBEA9-6A57-4348-866B-61FB5266D6A7} = {3CE7EBB4-1F73-48F3-B171-C88E268D0862}
+		{B30B313A-1AB0-4E74-9871-5962960432B7} = {3CE7EBB4-1F73-48F3-B171-C88E268D0862}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B445A98B-37A1-4943-8004-75320227325F}
