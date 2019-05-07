@@ -203,7 +203,7 @@ namespace _07_Camera
 
             mviewdata = Matrix4.Identity;
 
-            Title = "CoordinateSystems!";
+            Title = "Camera";
             GL.ClearColor(Color.CornflowerBlue);
             GL.PointSize(5f);
         }
